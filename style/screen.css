@@ -20,21 +20,33 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: black;
     font-family: open-sans, sans-serif;
 }
 
 body {
-    background: white;
+    background: black;
     transition: all 0.14s ease-in;
 }
 
 header {
     padding: 12px;
     text-align: center;
-    background: #E10600;
+    background: #EB6E26;
     color: white;
     font-size: 16px;
+}
+
+h1{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 18px;
+}
+
+p{
+    font-size: 12px;
 }
 
 @media (min-width: 500px) {
@@ -60,7 +72,7 @@ header {
 }
 
 .c-filter__circle{
-    background-color: #E10600;
+    background-color: #EB6E26;
     border-radius: 100%;
     display: flex;
     width: 78px;
@@ -83,8 +95,34 @@ header {
 
 .c-no_line {
     text-decoration: none;
+    color: white;
 }
 
+.c-games{
+    background-color: white;
+    width: 327px;
+    height: 59px;
+    align-items: center;
+    margin: auto;
+    border-radius: 16px;
+}
+
+.c-games__title{
+    padding-left: 16px;
+    padding-top: 19px;
+}
+
+.c-games__lowest{
+    text-align: right;
+    margin-top: -31px;
+    padding-right: 40px;
+}
+
+.c-games__price{
+    text-align: right;
+    margin-top: -26px;
+    padding-right: 15px;
+}
 
 /* gutter modifiers, these affect o-layout__item too */
 
