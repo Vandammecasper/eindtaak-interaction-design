@@ -30,7 +30,7 @@ body {
 }
 
 header {
-    padding: 12px;
+    padding: 5px;
     text-align: center;
     background: #EB6E26;
     color: white;
@@ -73,8 +73,8 @@ p{
     background-color: #EB6E26;
     border-radius: 100%;
     display: flex;
-    width: 78px;
-    height: 78px;
+    width: 48px;
+    height: 48px;
     align-items: center;
     justify-content: center;
     margin: auto;
@@ -85,14 +85,15 @@ p{
     left: 0;
     right: 0;
     align-items: center;
+    left: 210px;
 }
 
 .c-filter__search{
     background-color:white;
-    border-radius: 100%;
+    border-radius: 15px;
     display: flex;
-    width: 75px;
-    height: 75px;
+    width: 230px;
+    height: 48px;
     align-items: center;
     justify-content: center;
     margin: auto;
@@ -100,14 +101,22 @@ p{
 }
 
 .c-filter__search input{
-    border-radius: 100%;
+    border-radius: 15px;
     border: none;
     background-color: white;
     display: flex;
     font-size: 18px;
-    width: 100%;
-    height: 100%;
+    width: 270px;
+    height: 48px;
     padding: 0 10px;
+}
+
+.c-cross{
+    display: flex;
+    position: absolute;
+    margin-top: 16px;
+    right: 40px;
+    visibility: hidden;
 }
 
 
@@ -131,7 +140,7 @@ p{
     height: 59px;
     align-items: center;
     margin: auto;
-    border-radius: 16px;
+    border-radius: 15px;
 }
 
 .c-games__title{
@@ -151,6 +160,16 @@ p{
     padding-right: 15px;
 }
 
+.c-release{
+    visibility: hidden;
+    margin-left: 16px;
+}
+
+.c-date{
+    visibility: hidden;
+    margin-top: -26px;
+    margin-left: 90px;
+}
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
