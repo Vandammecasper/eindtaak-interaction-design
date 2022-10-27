@@ -45,6 +45,20 @@ h2{
     font-size: 18px;
 }
 
+h3{
+    font-size: 18px;
+    color: #EB6E26;
+    opacity: 0;
+    transition: 1s;
+    margin-left: 16px;
+    margin-top: 24px;
+    transition: 1.5s;
+}
+
+.h3-show{
+    opacity: 100%;
+}
+
 p{
     font-size: 12px;
 }
@@ -111,19 +125,6 @@ p{
     padding: 0 10px;
 }
 
-.c-cross{
-    display: flex;
-    position: absolute;
-    margin-top: 16px;
-    right: 20px;
-    opacity: 0%;
-    transition: 1s;
-}
-
-.c-cross-show{
-    opacity: 100%;
-}
-
 
 
 @media (min-width: 500px) {
@@ -150,17 +151,24 @@ p{
 }
 
 .c-games-show{
-    height: 500px;
-    transform: translateY(-63px);
+    height: 450px;
+    transform: translateY(-64px);
 }
 
 
 .c-games__title{
     padding-left: 16px;
     padding-top: 19px;
+    transition: 0.5s;
+}
+
+.c-games__title-show{
+    color: #EB6E26;
+    font-size: 20px;
 }
 
 .c-games__lowest{
+    display: block;
     text-align: right;
     margin-top: -31px;
     padding-right: 40px;
@@ -169,24 +177,95 @@ p{
 
 .c-games__lowest-hide{
     opacity: 0%;
+    visibility: hidden;
+}
+
+.c-cross {
+    display: flex;
+    position: absolute;
+    margin-top: 16px;
+    right: 20px;
+    opacity: 0%;
+    transition: 1s;
+}
+
+.c-cross-show {
+    opacity: 100%;
 }
 
 .c-games__price{
-    text-align: right;
+    display: block;
     margin-top: -26px;
-    padding-right: 15px;
+    padding-left: 290px;
+    transition: 0.5s;
 }
 
-.c-release{
-    visibility: hidden;
+.c-games__lowest-info{
+    margin-top: 24px;
     margin-left: 16px;
+    opacity: 0;
+    transition: 1s;
+}
+
+.c-games__lowest-info-show{
+    opacity: 100%;
+}
+
+.c-games__price-info{
+    display: flex;
+    margin-top: -25px;
+    margin-left: 102px;
+    opacity: 0;
+    transition: 1s;
+}
+
+.c-games__price-info-show{
+    opacity: 100%;
+}
+
+
+.c-release{
+    opacity: 0;
+    margin-left: 16px;
+    transition: 1s;
+}
+
+.c-release-show{
+    opacity: 100%;
 }
 
 .c-date{
-    visibility: hidden;
+    opacity: 0;
     margin-top: -26px;
     margin-left: 90px;
+    transition: 1s;
 }
+
+.c-date-show{
+    opacity: 100%;
+}
+
+.c-stores{
+    opacity: 0;
+    margin-left: 16px;
+    transition: 1s;
+}
+
+.c-stores-show{
+    opacity: 100%;
+}
+
+.c-stores__amount{
+    opacity: 0;
+    margin-top: -25px;
+    margin-left: 115px;
+    transition: 1s;
+}
+
+.c-stores__amount-show{
+    opacity: 100%;
+}
+
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
