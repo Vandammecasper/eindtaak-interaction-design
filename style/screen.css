@@ -78,7 +78,7 @@ p{
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 8px;
+    margin-top: 16px;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -97,7 +97,7 @@ p{
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 8px;
+    margin-top: 16px;
 }
 
 .c-filter__search input{
@@ -115,8 +115,13 @@ p{
     display: flex;
     position: absolute;
     margin-top: 16px;
-    right: 40px;
-    visibility: hidden;
+    right: 20px;
+    opacity: 0%;
+    transition: 1s;
+}
+
+.c-cross-show{
+    opacity: 100%;
 }
 
 
@@ -141,7 +146,14 @@ p{
     align-items: center;
     margin: auto;
     border-radius: 15px;
+    transition: 1.5s;
 }
+
+.c-games-show{
+    height: 500px;
+    transform: translateY(-63px);
+}
+
 
 .c-games__title{
     padding-left: 16px;
@@ -152,6 +164,11 @@ p{
     text-align: right;
     margin-top: -31px;
     padding-right: 40px;
+    transition: 0.5s;
+}
+
+.c-games__lowest-hide{
+    opacity: 0%;
 }
 
 .c-games__price{

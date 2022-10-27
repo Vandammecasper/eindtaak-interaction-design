@@ -1,49 +1,18 @@
-function information() {
-  const title = document.getElementById('title');
-  information = title.addEventListener('click', function () {
-    console.log('gameinformation initialised');
-    game.style.height = '501px';
-    const title = document.getElementById('title');
-    const lowest_price = document.getElementById('lowest_price');
-    const price = document.getElementById('price');
-    const cross = document.getElementById('cross');
-    const release = document.getElementById('release');
-    const date = document.getElementById('date');
-    title.style.color = '#EB6E26';
-    lowest_price.style.textAlign = 'left';
-    lowest_price.style.marginLeft = '16px';
-    lowest_price.style.marginTop = '16px';
-    price.style.textAlign = 'left';
-    price.style.marginLeft = '105px';
-    cross.style.visibility = 'visible';
-    release.style.visibility = 'visible';
-    date.style.visibility = 'visible';
+const information = function () {
+  document.querySelector('.c-games').addEventListener('click', function () {
+    this.classList.add('c-games-show');
+    document.querySelector('.c-cross').classList.add('c-cross-show');
+    document
+      .querySelector('.c-games__lowest')
+      .classList.add('c-games__lowest-hide');
+    document
+      .querySelector('.c-games__price')
+      .classList.add('c-games__lowest-hide');
   });
-  const cross = document.getElementById('cross');
-  close = cross.addEventListener('click', function () {
-    console.log('gameinformation closed');
-    const title = document.getElementById('title');
-    const lowest_price = document.getElementById('lowest_price');
-    const price = document.getElementById('price');
-    const cross = document.getElementById('cross');
-    const release = document.getElementById('release');
-    const date = document.getElementById('date');
-    const game = document.getElementById('game');
-    game.style.height = '59px';
-    title.style.color = 'black';
-    lowest_price.style.textAlign = 'right';
-    lowest_price.style.marginRight = '15px';
-    lowest_price.style.marginTop = '-31px';
-    price.style.textAlign = 'right';
-    price.style.marginRight = '15px';
-    price.style.marginTop = '-26px';
-    cross.style.visibility = 'hidden';
-    release.style.visibility = 'hidden';
-    date.style.visibility = 'hidden';
-  });
-}
+};
 
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('Script loaded!');
+const init = function () {
   information();
-});
+};
+
+document.addEventListener('DOMContentLoaded', init);
