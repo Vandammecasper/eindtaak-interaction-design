@@ -151,8 +151,8 @@ p{
 }
 
 .c-games-show{
-    height: 450px;
-    transform: translateY(-64px);
+    height: 550px;
+    transform: translateY(-65px);
 }
 
 
@@ -263,6 +263,19 @@ p{
 }
 
 .c-stores__amount-show{
+    opacity: 100%;
+}
+
+.c-chart{
+    margin-top: -250px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1.2s;
+}
+
+.c-chart-show{
+    visibility: visible;
+    margin-top: 0;
     opacity: 100%;
 }
 

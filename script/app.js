@@ -2,7 +2,6 @@ const information_open = function () {
   document
     .querySelector('.c-games__title')
     .addEventListener('click', function () {
-      console.log('information opening');
       document.querySelector('.c-games').classList.add('c-games-show');
       document.querySelector('.c-cross').classList.add('c-cross-show');
       document
@@ -17,6 +16,7 @@ const information_open = function () {
       document
         .querySelector('.c-games__lowest-info')
         .classList.add('c-games__lowest-info-show');
+      document.querySelector('.c-chart').classList.add('c-chart-show');
       document
         .querySelector('.c-games__price-info')
         .classList.add('c-games__price-info-show');
@@ -27,11 +27,11 @@ const information_open = function () {
         .querySelector('.c-stores__amount')
         .classList.add('c-stores__amount-show');
       document.querySelector('h3').classList.add('h3-show');
+      prices();
     });
 };
 
 const information_close = function () {
-  console.log('information closing');
   document.querySelector('.c-cross').addEventListener('click', function () {
     document.querySelector('.c-games').classList.remove('c-games-show');
     document.querySelector('.c-cross').classList.remove('c-cross-show');
@@ -57,7 +57,80 @@ const information_close = function () {
       .querySelector('.c-stores__amount')
       .classList.remove('c-stores__amount-show');
     document.querySelector('h3').classList.remove('h3-show');
+    document.querySelector('.c-chart').classList.remove('c-chart-show');
   });
+};
+
+const prices = function () {
+  console.log('prices');
+  const colors = ['blue', 'yellow', 'green', 'red', 'purple', 'orange'];
+  try {
+    var options = {
+      series: [
+        {
+          data: [21, 22, 10, 28, 16, 21, 13, 30],
+        },
+      ],
+      chart: {
+        height: 350,
+        type: 'bar',
+        events: {
+          click: function (chart, w, e) {},
+        },
+        animations: {
+          enabled: true,
+          easing: 'easeinout',
+          speed: 1200,
+          animateGradually: {
+            enabled: true,
+            delay: 150,
+          },
+          dynamicAnimation: {
+            enabled: true,
+            speed: 350,
+          },
+        },
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '50%',
+          distributed: true,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: false,
+      },
+      xaxis: {
+        categories: [
+          ['John', 'Doe'],
+          ['Joe', 'Smith'],
+          ['Jake', 'Williams'],
+          'Amber',
+          ['Peter', 'Brown'],
+          ['Mary', 'Evans'],
+          ['David', 'Wilson'],
+          ['Lily', 'Roberts'],
+        ],
+        labels: {
+          style: {
+            fontSize: '12px',
+          },
+        },
+      },
+    };
+
+    var chart = new ApexCharts(
+      document.querySelector('#chart_prices'),
+      options
+    );
+    chart.render();
+    console.log('chart rendered');
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const init = function () {
