@@ -133,6 +133,20 @@ const prices = function () {
   }
 };
 
+const getData = async (endpoint) => {
+  return fetch(endpoint)
+    .then((r) => r.json())
+    .catch((e) => console.error(e));
+};
+
+let getGames = async (title) => {
+  const key = '7fe1270c1fmsh4a31156f76da185p1048e8jsn6dccec974ba9';
+  const api = `https://game-prices.p.rapidapi.com/games?title=${title}&region=be&offset=0&${key}`;
+
+  const data = await getData(api);
+  console.log(data);
+};
+
 const init = function () {
   console.log('DOMContentLoaded');
   information_open();

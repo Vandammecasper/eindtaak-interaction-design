@@ -52,7 +52,7 @@ h3{
     transition: 1s;
     margin-left: 16px;
     margin-top: 24px;
-    transition: 1.5s;
+    transition: 1s;
 }
 
 .h3-show{
@@ -213,7 +213,7 @@ p{
 
 .c-games__price-info{
     display: flex;
-    margin-top: -25px;
+    margin-top: -26px;
     margin-left: 102px;
     opacity: 0;
     transition: 1s;
