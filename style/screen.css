@@ -79,27 +79,33 @@ p{
     margin-right: auto;
 }
 
-.c-filter{
-    display: flex;
-}
+
 
 .c-filter__circle{
     background-color: #EB6E26;
     border-radius: 100%;
     display: flex;
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 16px;
-    position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     align-items: center;
-    left: 210px;
+    left: 208px;
+    border: 0px;
+    position: absolute;
+}
+
+.c-filter{
+    display: flex;
+    align-items: right;
+    margin-left: 274px;
+    margin-top: 9px;
+    position: absolute;
 }
 
 .c-filter__search{
@@ -112,6 +118,7 @@ p{
     justify-content: center;
     margin: auto;
     margin-top: 16px;
+    border: 0px;
 }
 
 .c-filter__search input{

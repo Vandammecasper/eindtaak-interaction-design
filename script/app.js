@@ -1,3 +1,5 @@
+var title = '';
+
 const information_open = function () {
   document
     .querySelector('.c-games__title')
@@ -140,11 +142,17 @@ const getData = async (endpoint) => {
 };
 
 let getGames = async (title) => {
-  const key = '7fe1270c1fmsh4a31156f76da185p1048e8jsn6dccec974ba9';
-  const api = `https://game-prices.p.rapidapi.com/games?title=${title}&region=be&offset=0&${key}`;
+  const key = '69c07e858dmsh78a7e1ae0884494p108a7djsn46e153468a62';
+  const api = `https://game-prices.p.rapidapi.com/games?title=${title}&region=be&offset=0&rapidapi-key=${key}`;
 
   const data = await getData(api);
   console.log(data);
+};
+
+searchgame = function () {
+  title = document.getElementById('game').value;
+  console.log(title);
+  getGames(title);
 };
 
 const init = function () {

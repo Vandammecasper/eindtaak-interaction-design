@@ -20,12 +20,13 @@
             <h1>Game Prices</h1>
         </a>
     </header>
-    <div class="c-filter__circle">
-        <img class="c-filter" src="assets/search.png" width="32" height="32" alt="search">
-    </div>
-    <div class="c-filter__search">
-        <input type="text" value="enter a game...">
-    </div>
+    <form onsubmit="return false">
+    <input class="c-filter__circle" type="submit" value="">
+        <input type="image" class="c-filter" src="assets/search.png" width="32" height="32" alt="submit" onclick="searchgame()">
+    </input>
+    <input class="c-filter__search" type="text" id="game" value="enter a game...">
+    </form>
+    
     <div id="game" class="c-games">
         <img class="c-cross" src="assets/cross.png" alt="cross">
         <h2 class="c-games__title">Game Title</h2>
