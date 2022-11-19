@@ -48,7 +48,6 @@ h2{
 h3{
     font-size: 18px;
     color: #EB6E26;
-    opacity: 0;
     transition: 1s;
     margin-left: 16px;
     margin-top: 24px;
@@ -119,6 +118,7 @@ p{
     margin: auto;
     margin-top: 16px;
     border: 0px;
+    padding-left: 10px;
 }
 
 .c-filter__search input{
@@ -154,37 +154,53 @@ p{
     align-items: center;
     margin: auto;
     border-radius: 15px;
-    transition: 1.5s;
+    margin-top: 16px;
+    z-index: 1;
+    transition: 1s;
 }
 
-.c-games-show{
+.c-games__hide{
+    opacity: 25%;
+}
+
+.c-game{
+    background-color: white;
     height: 550px;
-    transform: translateY(-65px);
+    width: 330px;
+    align-items: center;
+    left: 50%;
+    margin-left: -165px;
+    border-radius: 15px;
+    position: absolute;
+    margin-top: -770px;
+    transition: 1s
 }
 
+.c-game__show{
+    transform: translateY(640px);
+}
 
 .c-games__title{
-    padding-left: 16px;
-    padding-top: 19px;
     transition: 0.5s;
+    width: 175px;
+    padding: 8px 8px;
+    margin: 0;
+    z-index: 1;
 }
 
 .c-games__title-show{
     color: #EB6E26;
     font-size: 20px;
+    padding: 8px 8px;
+    width: 175px;
 }
 
 .c-games__lowest{
-    display: block;
-    text-align: right;
-    margin-top: -31px;
-    padding-right: 40px;
-    transition: 0.5s;
-}
-
-.c-games__lowest-hide{
-    opacity: 0%;
-    visibility: hidden;
+    color: #EB6E26;
+    align-items: center;
+    display: absolute;
+    margin-left: 200px;
+    margin-top: -30px;
 }
 
 .c-cross {
@@ -192,37 +208,26 @@ p{
     position: absolute;
     margin-top: 16px;
     right: 20px;
-    opacity: 0%;
-    transition: 1s;
-}
-
-.c-cross-show {
-    opacity: 100%;
 }
 
 .c-games__price{
-    display: block;
-    margin-top: -26px;
-    padding-left: 290px;
-    transition: 0.5s;
+    color: #EB6E26;
+        align-items: center;
+        display: absolute;
+        margin-left: 286px;
+        margin-top: -7.8%;
 }
 
 .c-games__lowest-info{
     margin-top: 24px;
     margin-left: 16px;
-    opacity: 0;
     transition: 1s;
-}
-
-.c-games__lowest-info-show{
-    opacity: 100%;
 }
 
 .c-games__price-info{
     display: flex;
-    margin-top: -26px;
+    margin-top: -25px;
     margin-left: 102px;
-    opacity: 0;
     transition: 1s;
 }
 
@@ -232,17 +237,16 @@ p{
 
 
 .c-release{
-    opacity: 0;
     margin-left: 16px;
     transition: 1s;
 }
 
 .c-release-show{
     opacity: 100%;
+    visibility: visible;
 }
 
 .c-date{
-    opacity: 0;
     margin-top: -26px;
     margin-left: 90px;
     transition: 1s;
@@ -250,20 +254,20 @@ p{
 
 .c-date-show{
     opacity: 100%;
+    visibility: visible;
 }
 
 .c-stores{
-    opacity: 0;
     margin-left: 16px;
     transition: 1s;
 }
 
 .c-stores-show{
     opacity: 100%;
+    visibility: visible;
 }
 
 .c-stores__amount{
-    opacity: 0;
     margin-top: -25px;
     margin-left: 115px;
     transition: 1s;
@@ -271,12 +275,11 @@ p{
 
 .c-stores__amount-show{
     opacity: 100%;
+    visibility: visible;
 }
 
 .c-chart{
-    margin-top: -250px;
-    opacity: 0;
-    visibility: hidden;
+    margin-top: -25px;
     transition: 1.2s;
 }
 

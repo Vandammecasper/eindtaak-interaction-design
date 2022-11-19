@@ -1,66 +1,26 @@
 var title = '';
 
-const information_open = function () {
-  document
-    .querySelector('.c-games__title')
-    .addEventListener('click', function () {
-      document.querySelector('.c-games').classList.add('c-games-show');
-      document.querySelector('.c-cross').classList.add('c-cross-show');
-      document
-        .querySelector('.c-games__lowest')
-        .classList.add('c-games__lowest-hide');
-      document
-        .querySelector('.c-games__price')
-        .classList.add('c-games__lowest-hide');
-      document
-        .querySelector('.c-games__title')
-        .classList.add('c-games__title-show');
-      document
-        .querySelector('.c-games__lowest-info')
-        .classList.add('c-games__lowest-info-show');
-      document.querySelector('.c-chart').classList.add('c-chart-show');
-      document
-        .querySelector('.c-games__price-info')
-        .classList.add('c-games__price-info-show');
-      document.querySelector('.c-release').classList.add('c-release-show');
-      document.querySelector('.c-date').classList.add('c-date-show');
-      document.querySelector('.c-stores').classList.add('c-stores-show');
-      document
-        .querySelector('.c-stores__amount')
-        .classList.add('c-stores__amount-show');
-      document.querySelector('h3').classList.add('h3-show');
-      prices();
-    });
-};
-
-const information_close = function () {
-  document.querySelector('.c-cross').addEventListener('click', function () {
-    document.querySelector('.c-games').classList.remove('c-games-show');
-    document.querySelector('.c-cross').classList.remove('c-cross-show');
-    document
-      .querySelector('.c-games__lowest')
-      .classList.remove('c-games__lowest-hide');
-    document
-      .querySelector('.c-games__price')
-      .classList.remove('c-games__lowest-hide');
-    document
-      .querySelector('.c-games__title')
-      .classList.remove('c-games__title-show');
-    document
-      .querySelector('.c-games__lowest-info')
-      .classList.remove('c-games__lowest-info-show');
-    document
-      .querySelector('.c-games__price-info')
-      .classList.remove('c-games__price-info-show');
-    document.querySelector('.c-release').classList.remove('c-release-show');
-    document.querySelector('.c-date').classList.remove('c-date-show');
-    document.querySelector('.c-stores').classList.remove('c-stores-show');
-    document
-      .querySelector('.c-stores__amount')
-      .classList.remove('c-stores__amount-show');
-    document.querySelector('h3').classList.remove('h3-show');
-    document.querySelector('.c-chart').classList.remove('c-chart-show');
-  });
+const showData = function (data) {
+  let htmlstring = '';
+  for (let game of data.games) {
+    if (game.name != undefined) {
+      if (game.currentLowestPrice == 0) {
+        htmlstring += `<div  id="${game.id}" class="c-games">
+                   <h2 class="c-games__title" game-id="${game.id}" id="${game.id}">${game.name}</h2>
+                   <p class="c-games__lowest" id="${game.id}">Lowest Price: </p>
+                   <p class="c-games__price" id="${game.id}">Free</p>
+                   </div>`;
+      } else {
+        htmlstring += `<div  id="${game.id}" class="c-games">
+                   <h2 class="c-games__title" game-id="${game.id}" id="${game.id}">${game.name}</h2>
+                   <p class="c-games__lowest" id="${game.id}">Lowest Price: €</p>
+                   <p class="c-games__price" id="${game.id}"> ${game.currentLowestPrice}</p>
+                   </div>`;
+      }
+    }
+  }
+  document.querySelector('.c-games').innerHTML = htmlstring;
+  listentoGame();
 };
 
 const prices = function () {
@@ -135,6 +95,28 @@ const prices = function () {
   }
 };
 
+const listentoGame = function () {
+  game = document.querySelectorAll('.c-games__title');
+  for (let gam of game) {
+    gam.addEventListener('click', function () {
+      console.log('clicked');
+      document.querySelector('.c-game').classList.add('c-game__show');
+      document.querySelector('.c-games').classList.add('c-games__hide');
+      prices();
+    });
+  }
+  closeGame();
+};
+
+const closeGame = function () {
+  cross = document.querySelector('.c-cross');
+  cross.addEventListener('click', function () {
+    console.log('close');
+    document.querySelector('.c-game').classList.remove('c-game__show');
+    document.querySelector('.c-games').classList.remove('c-games__hide');
+  });
+};
+
 const getData = async (endpoint) => {
   return fetch(endpoint)
     .then((r) => r.json())
@@ -147,6 +129,7 @@ let getGames = async (title) => {
 
   const data = await getData(api);
   console.log(data);
+  showData(data);
 };
 
 searchgame = function () {
@@ -157,8 +140,6 @@ searchgame = function () {
 
 const init = function () {
   console.log('DOMContentLoaded');
-  information_open();
-  information_close();
 };
 
 document.addEventListener('DOMContentLoaded', init);
