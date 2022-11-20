@@ -101,9 +101,16 @@ p{
 
 .c-filter{
     display: flex;
-    align-items: right;
-    margin-left: 274px;
-    margin-top: 9px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    align-items: center;
+    left: 208px;
+    top: 95px;
     position: absolute;
 }
 
@@ -130,12 +137,6 @@ p{
     width: 270px;
     height: 48px;
     padding: 0 10px;
-}
-
-
-
-@media (min-width: 500px) {
-    
 }
 
 .c-visibility {
@@ -178,6 +179,21 @@ p{
 
 .c-game__show{
     transform: translateY(665px);
+}
+
+@media (min-width: 900px) {
+    .c-games {
+        display: inline-block;
+        margin: 20px;
+    }
+
+    .c-game {
+        margin-top: -820px;
+    }
+
+    .c-game__show {
+        transform: translateY(685px);
+    }
 }
 
 .c-games__title{
