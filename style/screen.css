@@ -165,19 +165,19 @@ p{
 
 .c-game{
     background-color: white;
-    height: 550px;
+    height: 580px;
     width: 330px;
     align-items: center;
     left: 50%;
     margin-left: -165px;
     border-radius: 15px;
     position: absolute;
-    margin-top: -770px;
+    margin-top: -800px;
     transition: 1s
 }
 
 .c-game__show{
-    transform: translateY(640px);
+    transform: translateY(665px);
 }
 
 .c-games__title{

@@ -1,4 +1,4 @@
-var title = '';
+var chart = '';
 
 const showData = function (data) {
   let htmlstring = '';
@@ -23,14 +23,97 @@ const showData = function (data) {
   listentoGame();
 };
 
-const prices = function () {
+const showGame = function (data) {
+  var chart = document.querySelector('.c-chart');
+  var parent = document.querySelector('.c-game');
+  parent.removeChild(chart);
+  const newChart = document.createElement('div');
+  newChart.classList.add('c-chart');
+  newChart.id = 'chart_prices';
+  const game = document.querySelector('.c-game');
+  insertAfter(newChart, game.lastElementChild);
+  let html = '';
+  console.log(data.currentLowestPrice);
+  if (data.currentLowestPrice == 0) {
+    console.log('no price');
+    html = `<div class="c-game">
+        <img class="c-cross" id="" src="assets/cross.png" alt="cross">
+        <h2 class="c-games__title-show" game-id="">${data.name}</h2>
+        <p class="c-games__lowest-info">Lowest Price: </p>
+        <p class="c-games__price-info">Free</p>
+        <p class="c-release">release date: </p>
+        <p class="c-date">${data.releaseDate}</p>
+        <p class="c-stores">amount of stores: </p>
+        <p class="c-stores__amount">${data.stores.length}</p>
+        <h3>Prices</h3>
+        <div class="c-chart" id="chart_prices"></div>
+    </div>`;
+  } else if (data.releaseDate == 'null') {
+    console.log('no date');
+    html = `<div class="c-game">
+        <img class="c-cross" id="" src="assets/cross.png" alt="cross">
+        <h2 class="c-games__title-show" game-id="">${data.name}</h2>
+        <p class="c-games__lowest-info">Lowest Price: €</p>
+        <p class="c-games__price-info">${data.currentLowestPrice}</p>
+        <p class="c-release">release date: </p>
+        <p class="c-date">Not Available</p>
+        <p class="c-stores">amount of stores: </p>
+        <p class="c-stores__amount">${data.stores.length}</p>
+        <h3>Prices</h3>
+        <div class="c-chart" id="chart_prices"></div>
+    </div>`;
+  } else if (data.releaseDate == 'null' && data.currentLowestPrice == 0) {
+    console.log('no date and no price');
+    html = `<div class="c-game">
+        <img class="c-cross" id="" src="assets/cross.png" alt="cross">
+        <h2 class="c-games__title-show" game-id="">${data.name}</h2>
+        <p class="c-games__lowest-info">Lowest Price: </p>
+        <p class="c-games__price-info">Free</p>
+        <p class="c-release">release date: </p>
+        <p class="c-date">Not Available</p>
+        <p class="c-stores">amount of stores: </p>
+        <p class="c-stores__amount">${data.stores.length}</p>
+        <h3>Prices</h3>
+        <div class="c-chart" id="chart_prices"></div>
+    </div>`;
+  } else {
+    console.log('price and date');
+    html = `<div class="c-game">
+        <img class="c-cross" id="" src="assets/cross.png" alt="cross">
+        <h2 class="c-games__title-show" game-id="">${data.name}</h2>
+        <p class="c-games__lowest-info">Lowest Price: €</p>
+        <p class="c-games__price-info">${data.currentLowestPrice}</p>
+        <p class="c-release">release date: </p>
+        <p class="c-date">${data.releaseDate}</p>
+        <p class="c-stores">amount of stores: </p>
+        <p class="c-stores__amount">${data.stores.length}</p>
+        <h3>Prices</h3>
+        <div class="c-chart" id="chart_prices"></div>
+    </div>`;
+  }
+  console.log(html);
+  document.querySelector('.c-game').innerHTML = html;
+  document.querySelector('.c-game').classList.add('c-game__show');
+  document.querySelector('.c-games').classList.add('c-games__hide');
+  prices(data);
+};
+
+const prices = function (data) {
   console.log('prices');
+  let prices = [];
+  let stores = [];
+  for (let store of data.stores) {
+    prices.push(store.price);
+    stores.push(store.seller);
+  }
+  console.log(prices);
+  console.log(stores);
   const colors = ['blue', 'yellow', 'green', 'red', 'purple', 'orange'];
   try {
     var options = {
       series: [
         {
-          data: [21, 22, 10, 28, 16, 21, 13, 30],
+          data: prices,
         },
       ],
       chart: {
@@ -66,16 +149,7 @@ const prices = function () {
         show: false,
       },
       xaxis: {
-        categories: [
-          ['John', 'Doe'],
-          ['Joe', 'Smith'],
-          ['Jake', 'Williams'],
-          'Amber',
-          ['Peter', 'Brown'],
-          ['Mary', 'Evans'],
-          ['David', 'Wilson'],
-          ['Lily', 'Roberts'],
-        ],
+        categories: stores,
         labels: {
           style: {
             fontSize: '12px',
@@ -84,15 +158,13 @@ const prices = function () {
       },
     };
 
-    var chart = new ApexCharts(
-      document.querySelector('#chart_prices'),
-      options
-    );
+    chart = new ApexCharts(document.querySelector('#chart_prices'), options);
     chart.render();
     console.log('chart rendered');
   } catch (error) {
     console.log(error);
   }
+  closeGame();
 };
 
 const listentoGame = function () {
@@ -100,13 +172,18 @@ const listentoGame = function () {
   for (let gam of game) {
     gam.addEventListener('click', function () {
       console.log('clicked');
-      document.querySelector('.c-game').classList.add('c-game__show');
-      document.querySelector('.c-games').classList.add('c-games__hide');
-      prices();
+      console.log(gam.id);
+      const gameid = gam.id;
+      if (gameid != undefined) {
+        getGame(gameid);
+      }
     });
   }
-  closeGame();
 };
+
+function insertAfter(newNode, existingNode) {
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
 
 const closeGame = function () {
   cross = document.querySelector('.c-cross');
@@ -130,6 +207,15 @@ let getGames = async (title) => {
   const data = await getData(api);
   console.log(data);
   showData(data);
+};
+
+let getGame = async (gameid) => {
+  const gamekey = '69c07e858dmsh78a7e1ae0884494p108a7djsn46e153468a62';
+  const gameapi = `https://game-prices.p.rapidapi.com/game/${gameid}?region=be&offset=0&rapidapi-key=${gamekey}`;
+
+  const data = await getData(gameapi);
+  console.log(data);
+  showGame(data);
 };
 
 searchgame = function () {
