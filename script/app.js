@@ -1,6 +1,7 @@
 var chart = '';
 
 const showData = function (data) {
+  document.querySelector('.c-games').classList.add('c-games__show');
   let htmlstring = '';
   for (let game of data.games) {
     if (game.name != undefined) {
@@ -36,7 +37,7 @@ const showGame = function (data) {
   console.log(data.currentLowestPrice);
   if (data.currentLowestPrice == 0) {
     console.log('no price');
-    html = `<div class="c-game">
+    html = `
         <img class="c-cross" id="" src="assets/cross.png" alt="cross">
         <h2 class="c-games__title-show" game-id="">${data.name}</h2>
         <p class="c-games__lowest-info">Lowest Price: </p>
@@ -47,10 +48,10 @@ const showGame = function (data) {
         <p class="c-stores__amount">${data.stores.length}</p>
         <h3>Prices</h3>
         <div class="c-chart" id="chart_prices"></div>
-    </div>`;
-  } else if (data.releaseDate == 'null') {
+    `;
+  } else if (data.releaseDate == null) {
     console.log('no date');
-    html = `<div class="c-game">
+    html = `
         <img class="c-cross" id="" src="assets/cross.png" alt="cross">
         <h2 class="c-games__title-show" game-id="">${data.name}</h2>
         <p class="c-games__lowest-info">Lowest Price: €</p>
@@ -61,10 +62,10 @@ const showGame = function (data) {
         <p class="c-stores__amount">${data.stores.length}</p>
         <h3>Prices</h3>
         <div class="c-chart" id="chart_prices"></div>
-    </div>`;
+    `;
   } else if (data.releaseDate == 'null' && data.currentLowestPrice == 0) {
     console.log('no date and no price');
-    html = `<div class="c-game">
+    html = `
         <img class="c-cross" id="" src="assets/cross.png" alt="cross">
         <h2 class="c-games__title-show" game-id="">${data.name}</h2>
         <p class="c-games__lowest-info">Lowest Price: </p>
@@ -75,10 +76,10 @@ const showGame = function (data) {
         <p class="c-stores__amount">${data.stores.length}</p>
         <h3>Prices</h3>
         <div class="c-chart" id="chart_prices"></div>
-    </div>`;
+    `;
   } else {
     console.log('price and date');
-    html = `<div class="c-game">
+    html = `
         <img class="c-cross" id="" src="assets/cross.png" alt="cross">
         <h2 class="c-games__title-show" game-id="">${data.name}</h2>
         <p class="c-games__lowest-info">Lowest Price: €</p>
@@ -89,7 +90,7 @@ const showGame = function (data) {
         <p class="c-stores__amount">${data.stores.length}</p>
         <h3>Prices</h3>
         <div class="c-chart" id="chart_prices"></div>
-    </div>`;
+    `;
   }
   console.log(html);
   document.querySelector('.c-game').innerHTML = html;
@@ -108,7 +109,6 @@ const prices = function (data) {
   }
   console.log(prices);
   console.log(stores);
-  const colors = ['blue', 'yellow', 'green', 'red', 'purple', 'orange'];
   try {
     var options = {
       series: [
@@ -204,7 +204,11 @@ let getGames = async (title) => {
   const key = '69c07e858dmsh78a7e1ae0884494p108a7djsn46e153468a62';
   const api = `https://game-prices.p.rapidapi.com/games?title=${title}&region=be&offset=0&rapidapi-key=${key}`;
 
+  document.querySelector('.c-gif').classList.add('c-gif__show');
+  document.querySelector('.c-opacity').classList.add('c-opacity__hide');
   const data = await getData(api);
+  document.querySelector('.c-gif').classList.remove('c-gif__show');
+  document.querySelector('.c-opacity').classList.remove('c-opacity__hide');
   console.log(data);
   showData(data);
 };
@@ -213,7 +217,11 @@ let getGame = async (gameid) => {
   const gamekey = '69c07e858dmsh78a7e1ae0884494p108a7djsn46e153468a62';
   const gameapi = `https://game-prices.p.rapidapi.com/game/${gameid}?region=be&offset=0&rapidapi-key=${gamekey}`;
 
+  document.querySelector('.c-gif').classList.add('c-gif__show');
+  document.querySelector('.c-opacity').classList.add('c-opacity__hide');
   const data = await getData(gameapi);
+  document.querySelector('.c-gif').classList.remove('c-gif__show');
+  document.querySelector('.c-opacity').classList.remove('c-opacity__hide');
   console.log(data);
   showGame(data);
 };
