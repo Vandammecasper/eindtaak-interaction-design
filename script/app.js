@@ -209,6 +209,7 @@ let getGames = async (title) => {
   const data = await getData(api);
   document.querySelector('.c-gif').classList.remove('c-gif__show');
   document.querySelector('.c-opacity').classList.remove('c-opacity__hide');
+  document.querySelector('.visual').classList.add('visual-show');
   console.log(data);
   showData(data);
 };
