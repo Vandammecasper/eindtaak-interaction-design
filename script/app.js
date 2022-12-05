@@ -207,11 +207,18 @@ let getGames = async (title) => {
   document.querySelector('.c-gif').classList.add('c-gif__show');
   document.querySelector('.c-opacity').classList.add('c-opacity__hide');
   const data = await getData(api);
-  document.querySelector('.c-gif').classList.remove('c-gif__show');
-  document.querySelector('.c-opacity').classList.remove('c-opacity__hide');
-  document.querySelector('.visual').classList.add('visual-show');
-  console.log(data);
-  showData(data);
+  if (data != undefined) {
+    document.querySelector('.c-gif').classList.remove('c-gif__show');
+    document.querySelector('.c-opacity').classList.remove('c-opacity__hide');
+    document.querySelector('.visual').classList.add('visual-show');
+    console.log(data);
+    showData(data);
+  } else {
+    document.querySelector('.c-gif').classList.remove('c-gif__show');
+    document.querySelector('.c-opacity').classList.remove('c-opacity__hide');
+    document.querySelector('.c-servers').classList.add('c-servers__show');
+    console.log('no data');
+  }
 };
 
 let getGame = async (gameid) => {

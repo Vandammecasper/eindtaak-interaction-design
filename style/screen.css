@@ -71,6 +71,39 @@ p{
     visibility: visible;
 }
 
+.c-servers {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    background-color: white;
+    display: flex;
+    margin: auto;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 160px;
+    border-radius: 15px;
+    visibility: hidden;
+}
+
+.c-server {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    width: 50%;
+}
+
+.c-servers__show {
+    visibility: visible;
+}
+
+.c-serverinfo {
+    margin-top: -8px;
+}
+
 @media (min-width: 500px) {
     .c-header {
         position: absolute;
@@ -78,6 +111,11 @@ p{
         margin-top: -5px;
         padding: 0px 24px 24px;
         font-size: 30px;
+    }
+
+    .c-servers{
+        width: 50%;
+        margin-left: 25%;
     }
 }
 
@@ -251,6 +289,11 @@ p{
 
     .c-filter__search{
         margin-bottom: 32px;
+    }
+
+    .c-servers {
+        width: 25%;
+        margin-left: 37.5%;
     }
 }
 
