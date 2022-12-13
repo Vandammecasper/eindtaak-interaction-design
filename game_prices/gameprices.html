@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>gameprices</title>
+    <link rel="stylesheet" href="style/screen.css" />
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"
+        integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU"
+        crossorigin="anonymous"></script>
+    <script src="script/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <div class="c-opacity">
+        <header class="c-no_line">
+                <a class="c-no_line" href="/game_prices/gameprices.html">
+                    <h1>Game Prices</h1>
+                </a>
+            </header>
+            <form onsubmit="return false">
+            <input class="c-filter__circle" type="submit" value="">
+                <input type="image" class="c-filter" src="assets/search.png" width="32" height="32" alt="submit" onclick="searchgame()">
+            </input>
+            <input class="c-filter__search" type="text" id="game" placeholder="enter a game...">
+            </form>
+
+            <div class="visual">
+                <div class="c-games games">
+                <h2 class="c-games__title" game-id="">Game Title</h2>
+                <p class="c-games__lowest">Lowest Price: </p>
+                <p class="c-games__price">€ €€€</p>
+            </div>
+            </div>
+            
+            <div class="c-game">
+                <img class="c-cross" id="" src="assets/cross.png" alt="cross">
+                <h2 class="c-games__title-show" game-id="">Game title</h2>
+                <p class="c-games__lowest-info">Lowest Price: €</p>
+                <p class="c-games__price-info">€€€</p>
+                <p class="c-release">release date: </p>
+                <p class="c-date">dd-mm-yyyy</p>
+                <p class="c-stores">amount of stores: </p>
+                <p class="c-stores__amount">...</p>
+                <h3>Prices</h3>
+                <div class="c-chart" id="chart_prices"></div>
+            </div>
+    </div>
+    <div class="c-gif">
+        <div class="c-gif__img" >
+            <img src="assets/Double Ring-1.6s-227px.gif" alt="gif">
+        </div>
+    </div>
+
+    <div class="c-servers">
+        <div class="c-server">
+            <h3>Servers down...</h3>
+            <p class="c-serverinfo">We are very sorry for the inconvenience, at the moment we have a problem with our servers.</p>
+    </div>
+    </div>
+    
+    
+</body>
+
+    
+
+</html>

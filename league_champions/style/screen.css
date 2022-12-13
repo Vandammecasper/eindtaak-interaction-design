@@ -22,7 +22,7 @@ html {
     padding: 0;
     background-color: black;
     font-family: open-sans, sans-serif;
-    max-width: 1700px;
+    max-width: 2000px;
 }
 
 body {
@@ -344,7 +344,7 @@ p{
 .c-games__price-info{
     display: flex;
     margin-top: -25px;
-    margin-left: 102px;
+    margin-left: 48px;
     transition: 1s;
 }
 
@@ -364,8 +364,8 @@ p{
 }
 
 .c-date{
-    margin-top: -26px;
-    margin-left: 90px;
+    margin-top: -25px;
+    margin-left: 112px;
     transition: 1s;
 }
 
@@ -386,7 +386,7 @@ p{
 
 .c-stores__amount{
     margin-top: -25px;
-    margin-left: 115px;
+    margin-left: 120px;
     transition: 1s;
 }
 
@@ -395,8 +395,13 @@ p{
     visibility: visible;
 }
 
-.c-chart{
+.c-range{
     margin-top: -25px;
+    margin-left: 56px;
+    transition: 1s;
+}
+
+.c-chart{
     transition: 1.2s;
 }
 
