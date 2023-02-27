@@ -75,7 +75,7 @@ const prices = function (data) {
         type: 'radar',
       },
       title: {
-        text: `${data.name} stats`,
+        text: `${data.name} statistics`,
       },
       xaxis: {
         categories: [
