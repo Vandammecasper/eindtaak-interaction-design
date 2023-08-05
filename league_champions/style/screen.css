@@ -63,14 +63,6 @@ p{
     font-size: 0.75rem;
 }
 
-.visual{
-    visibility: hidden;
-}
-
-.visual-show{
-    visibility: visible;
-}
-
 .c-servers {
     position: absolute;
     align-items: center;
@@ -238,6 +230,10 @@ p{
     opacity: 25%;
 }
 
+.c-game__example {
+    display: none;
+}
+
 .c-game{
     background-color: white;
     height: 32rem;
@@ -257,11 +253,11 @@ p{
 
 @media (min-width: 56.25rem) {
     .games {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 2rem;
-        margin: 0;
-        margin-left: 0.5rem;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color: black;
     }
 
     .c-games__lowest{
@@ -284,7 +280,7 @@ p{
     }
 
     .c-games{
-        margin-bottom: 0;
+        margin-bottom: 1rem;
     }
 
     .c-filter__search{
