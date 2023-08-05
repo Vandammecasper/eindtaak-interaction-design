@@ -242,13 +242,13 @@ p{
     left: 50%;
     margin-left: -10.3125rem;
     border-radius: 0.9375rem;
-    position: absolute;
-    margin-top: -50.625rem;
+    position: fixed;
+    margin-top: -54.625rem;
     transition: 1s
 }
 
 .c-game__show{
-    transform: translateY(41.5625rem);
+    transform: translateY(45.5625rem);
 }
 
 @media (min-width: 56.25rem) {
@@ -273,6 +273,7 @@ p{
     .c-game__show {
         transform: translateY(81.25rem);
     }
+
     .grid {
         display: grid;
         grid-template-columns: 1fr 1fr;

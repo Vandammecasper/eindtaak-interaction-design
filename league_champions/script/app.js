@@ -46,7 +46,6 @@ const showGame = function (data) {
   document.querySelector('.c-game').innerHTML = html;
   document.querySelector('.c-game').classList.add('c-game__show');
   document.querySelector('.c-games').classList.add('c-games__hide');
-  // wait 1 second (max = 1 request per second)
   setTimeout(function () {
     prices(data);
   }, 1000);
