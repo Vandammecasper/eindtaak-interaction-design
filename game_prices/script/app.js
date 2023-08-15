@@ -152,7 +152,7 @@ const prices = function (data) {
         categories: stores,
         labels: {
           style: {
-            fontSize: '12px',
+            fontSize: '0.75rem',
           },
         },
       },
